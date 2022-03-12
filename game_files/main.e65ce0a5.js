@@ -2374,12 +2374,12 @@
     Is.innerHTML =
       '\n  <div class="countdown">\n    <h1>Prochain jeu dans:</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      copie <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
     var Ms = {
-        currentStreak: "Série actuelle",
+        currentStreak: "Gains consécutifs",
         maxStreak: "Meilleure série",
         winPercentage: "Gagnées %",
         gamesPlayed: "Jouées",
-        gamesWon: "Gagnées #",
-        averageGuesses: "Moy. devinées",
+        gamesWon: "Gagnées",
+        averageGuesses: "#coup moyen",
       },
       Os = (function (e) {
         r(t, e);
@@ -2446,9 +2446,11 @@
                 if (
                   ([
                     "gamesPlayed",
-                    "winPercentage",
+                    "gamesWon",
+                   /* "winPercentage", */
                     "currentStreak",
-                    "maxStreak",
+                    "averageGuesses",
+                   /* "maxStreak", */
                   ].forEach(function (s) {
                     var t = Ms[s],
                       o = e.stats[s],
