@@ -1632,7 +1632,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
   `\n   <div class="share">
 <button id="share-button"><game-icon icon="share"></game-icon>
   </button>
-<button id="refresh-button">Rejouer<game-icon icon="refresh"></game-icon>
+<button id="refresh-button">Jouer<game-icon icon="refresh"></game-icon>
   </button>
 </div>\n`;
     var Ms = {
@@ -1675,7 +1675,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                     }
                     s.appendChild(l)
                 }
-                if (["gamesPlayed", "winPercentage", "currentStreak", "maxStreak"].forEach((function (s) {
+                if (["gamesPlayed", "gamesWon", "averageGuesses"].forEach((function (s) {
                     var t = Ms[s], o = e.stats[s], n = Ls.content.cloneNode(!0);
                     n.querySelector(".label").textContent = t, n.querySelector(".statistic").textContent = o, a.appendChild(n)
                 })), this.gameApp.gameStatus !== Za) {
