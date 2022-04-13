@@ -1552,14 +1552,6 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
       width: 50%;
     }
 
-    .refresh {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 4px;
-      width: 50%;
-    }
-
     .no-data {
       text-align: center;
     }
@@ -1618,17 +1610,17 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     button#refresh-button game-icon {
       width: 24px;
       height: 24px;
-      padding-left: 2px;
+      padding-left: 8px;
     }
     
   </style>
 
   <div class="container">
 
-    <p align="center">Visitez le <a href="https://www.twitter.com/modukebec+" target="_blank">@modukebec</a> sur Twitter! </p>
+    <p align="center">Visitez le <a href="https://www.twitter.com/modukebec+" target="_blank"><strong>@modukebec</strong></a> sur Twitter! </p>
     
-    <div class="refresh">
-    <button id="refresh-button">Rejouer<game-icon icon="refresh"></game-icon></button>
+    <div class="share">\n
+    <button id="refresh-button">\n Rejouer<game-icon icon="refresh"></game-icon>\n  </button>
     </div>
 
     <h1>Statistiques</h1>
@@ -1646,7 +1638,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     Is.innerHTML =   
         
         
-    '\n  <div class="countdown">\n    <h1>Jeu du jour</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>  \n  </div>\n';
+    '\n  <div class="countdown">\n    <h1>Jeu du jour</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      Copié <game-icon icon="share"></game-icon>\n    </button>  \n  </div>\n';
     
     
     var Ms = {
