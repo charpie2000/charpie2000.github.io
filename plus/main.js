@@ -1619,9 +1619,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
 
     <p align="center">Visitez le <a href="https://www.twitter.com/modukebec+" target="_blank"><strong>@modukebec</strong></a> sur Twitter! </p>
     
-    <div class="share">\n
-    <button id="refresh-button">\n Rejouer<game-icon icon="refresh"></game-icon>\n  </button>
-    </div>
+    <button id="refresh-button"> Rejouer<game-icon icon="refresh"></game-icon>  </button>
 
     <h1>Statistiques</h1>
     <div id="statistics"></div>
