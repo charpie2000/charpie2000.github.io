@@ -1552,6 +1552,14 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
       width: 50%;
     }
 
+    .refresh {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 4px;
+      width: 50%;
+    }
+
     .no-data {
       text-align: center;
     }
@@ -1610,12 +1618,19 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     button#refresh-button game-icon {
       width: 24px;
       height: 24px;
-      padding-left: 8px;
+      padding-left: 2px;
     }
     
   </style>
 
   <div class="container">
+
+    <p align="center">Visitez le <a href="https://www.twitter.com/modukebec+" target="_blank">@modukebec</a> sur Twitter! </p>
+    
+    <div class="refresh">
+    <button id="refresh-button">Rejouer<game-icon icon="refresh"></game-icon></button>
+    </div>
+
     <h1>Statistiques</h1>
     <div id="statistics"></div>
     <h1>Performances</h1>
@@ -1628,13 +1643,12 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
     var Ts = document.createElement("template");
     Ts.innerHTML = '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
     var Is = document.createElement("template");
-    Is.innerHTML =
-  `\n   <div class="share">
-<button id="share-button"><game-icon icon="share"></game-icon>
-  </button>
-<button id="refresh-button">Jouer<game-icon icon="refresh"></game-icon>
-  </button>
-</div>\n`;
+    Is.innerHTML =   
+        
+        
+    '\n  <div class="countdown">\n    <h1>Jeu du jour</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>  \n  </div>\n';
+    
+    
     var Ms = {
         currentStreak: "Gains consécutifs",
         maxStreak: "Meilleure série",
