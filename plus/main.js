@@ -976,13 +976,13 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                     if (5 === this.tileIndex && !(this.rowIndex >= 6)) {
                         var e, a = this.$board.querySelectorAll("game-row")[this.rowIndex],
                             s = this.boardState[this.rowIndex];
-                        if (e = s, !WORD_LIST.includes(e) && !SOLUTION_LIST.includes(e)) return a.setAttribute("invalid", ""), void this.addToast("Not in word list");
+                        if (e = s, !WORD_LIST.includes(e) && !SOLUTION_LIST.includes(e)) return a.setAttribute("invalid", ""), void this.addToast("Pas un mot listé");
                         if (this.hardMode) {
                             var t = function (e, a, s) {
                                     if (!e || !a || !s) return {validGuess: !0};
                                     for (var t = 0; t < s.length; t++) if (s[t] === Ma && e[t] !== a[t]) return {
                                         validGuess: !1,
-                                        errorMessage: "".concat($a(t + 1), " letter must be ").concat(a[t].toUpperCase())
+                                        errorMessage: "".concat($a(t + 1), " lettre doit être un ").concat(a[t].toUpperCase())
                                     };
                                     for (var o = {}, n = 0; n < s.length; n++) [Ma, Ia].includes(s[n]) && (o[a[n]] ? o[a[n]] += 1 : o[a[n]] = 1);
                                     var r = e.split("").reduce((function (e, a) {
@@ -990,7 +990,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                                     }), {});
                                     for (var i in o) if ((r[i] || 0) < o[i]) return {
                                         validGuess: !1,
-                                        errorMessage: "Guess must contain ".concat(i.toUpperCase())
+                                        errorMessage: "Le mot doit contenir un ".concat(i.toUpperCase())
                                     };
                                     return {validGuess: !0}
                                 }(s, this.boardState[this.rowIndex - 1], this.evaluations[this.rowIndex - 1]), o = t.validGuess,
@@ -1098,7 +1098,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function (e) {
                         var s = a.detail, t = s.name, o = s.checked, n = s.disabled;
                         switch (t) {
                             case"hard-mode":
-                                return void (n ? e.addToast("Hard mode can only be enabled at the start of a round", 1500, !0) : (e.hardMode = o, ja({hardMode: o})))
+                                return void (n ? e.addToast("Le mode difficile doit être choisi au début de la partie", 1500, !0) : (e.hardMode = o, ja({hardMode: o})))
                         }
                     })), this.shadowRoot.getElementById("settings-button").addEventListener("click", (function (a) {
                         var s = e.$game.querySelector("game-page"), t = document.createTextNode("Paramètres");
