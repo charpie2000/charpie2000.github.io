@@ -1303,7 +1303,7 @@ this.wordle.bundle = function(e) {
     }
     </style>
     <div class="container">
-    <h1>Statistics</h1>
+    <h1>Statistiques</h1>
     <div id="statistics">
         <div class="statistic-container">
         <div class="statistic">
@@ -1339,7 +1339,7 @@ this.wordle.bundle = function(e) {
         <div class="label">Max Streak</div>
         </div>
     </div>
-    <h1>Guess Distribution</h1>
+    <h1>Performances</h1>
     <div id="guess-distribution">
         <div class="graph-container">
         <div class="guess">1</div>
@@ -2102,7 +2102,7 @@ this.wordle.bundle = function(e) {
                                 style="display:flex; justify-content:space-evenly; align-items:center; padding:15px 0; cursor:pointer; border-bottom:1px grey solid;"
                                 onclick="window.todaysWord(${i})"
                             >
-                            <div style="width:30px;">${i}</div><div style="flex-grow:1;">${puzzleDate.toDateString()}</div><div style="width:27px;">${successEmoji}</div>
+                            <div style="width:30px;">${i}</div><div style="flex-grow:1;">${puzzleDate.toLocaleDateString('fr-FR', { weekday:"short", year:"numeric", month:"short", day:"numeric"})}</div><div style="width:27px;">${successEmoji}</div>
                             </li>
                         `
                     }
