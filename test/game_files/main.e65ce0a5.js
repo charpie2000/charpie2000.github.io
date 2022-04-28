@@ -2077,7 +2077,7 @@ this.wordle.bundle = function(e) {
                     }
                     </style>
                         <p>Rejouer un <strong>MODUKEBEC</strong> passé.</p>
-                        <p>Les mots complétés seront marqués d'un ✅, mais les résultats ne seront pas enregistrés.</p>
+                        <p>Les mots complétés seront marqués d'un ✅.</p>
                     `
                     o.appendChild(p)
 
