@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Free online implementation of Bulls and Cows game">
-    <meta name="keywords" content="Bulls and cows, free, online, game">
-    <meta name="author" content="Dmitrii Pankov (c) 2023">
+    <meta name="description" content="Devinez le code">
+    <meta name="keywords" content="Code, mastermind">
+    <meta name="author" content="Jeu adapté de Dmitrii Pankov">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devinez le code</title>
@@ -97,7 +97,7 @@
         <tr>
             <td width="50%" class="right cell"><a id="button_new" class="button" href="#new" onclick="return false;" title="guess a new number">nouveau</a></td>
             <td width="0%" id="number" class="center"></td>
-            <td width="50%" class="left cell"><a id="button_show" class="button" href="#show" onclick="return false;" title="stop game and show the number">solution</a></td>
+            <td width="50%" class="left cell"><a id="button_show" class="button" href="#show" onclick="return false;" title="stop game and show the number">réponse</a></td>
         </tr>
         <tr>
             <td class="right"></td>
@@ -111,7 +111,7 @@
                     <input id="text_number" type="tel" maxlength="4" size="4" autocomplete="false" />
                 </form>
             </td>
-            <td class="left"><a id="button_check" class="button" href="#check" onclick="return false;" title="check your number">vérifier</a></td>
+            <td class="left"><a id="button_check" class="button" href="#check" onclick="return false;" title="check your number">valider</a></td>
         </tr>
         <tr>
             <td id="message" class="center" colspan="3"></td>
@@ -122,10 +122,9 @@
         <p>Entrer un code composé de 4 chiffres uniques de 1 à 9 et valider votre choix</p>
         <p>chaque b = un chiffre bien placé</p>
         <p>chaque c = un chiffre correct mal placé</p>
-        <p>Donc, si le code est <b>5432</b> et vous choissisez <b>1234</b></p>
-        <p>la réponse sera <b>bcc</b> parce que vous avez un chiffre de bien placé et deux chiffres corrects mal placés</p>
+        <p>Donc, si le code est <b>5432</b> et vous choissisez <b>1234</b>, la réponse sera <b>bcc</b>, parce que vous avez un chiffre de bien placé et deux chiffres corrects mal placés</p>
         <p>nouveau = deviner un nouveau code</p>
-        <p>solution = montrer le code</p>
+        <p>réponse = montrer moi le code</p>
         <p>indice = donner moi un indice</p>
         <p>valider = valider votre choix</p>
         <p class="center"><a href="mailto:sunray9@icloud.com?subject=Commentaires" title="sunray9@icloud.com">contact</a></p>
