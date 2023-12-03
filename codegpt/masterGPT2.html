@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastermind Game</title>
+  <style>
+    input {
+      width: 30px;
+      text-align: center;
+    }
+    .feedback {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Mastermind Game</h1>
+<div id="game">
+  <div>
+    <label for="guess">Enter your guess:</label>
+    <input type="text" id="guess" maxlength="4">
+    <button onclick="submitGuess()">Submit Guess</button>
+    <button onclick="revealCode()">Reveal Code</button>
+  </div>
+  <div id="feedback" class="feedback"></div>
+  <div id="guessHistory"></div>
+</div>
+
+<script>
+  // Function to generate a random 4-digit code
+  function generateSecretCode() {
+    let code = '';
+    for (let i = 0; i < 4; i++) {
+      code += Math.floor(Math.random() * 6) + 1;
+    }
+    return code;
+  }
+
+  // Initialize the game
+  let secretCode = generateSecretCode();
+  let attempts = 0;
+
+  // Function to check the guess against the secret code
+  function checkGuess(guess) {
+    let feedback = { exact: 0, partial: 0 };
+
+    // Check for exact matches
+    for (let i = 0; i < 4; i++) {
+      if (guess[i] === secretCode[i]) {
+        feedback.exact++;
+      }
+    }
+
+    // Check for partial matches
+    for (let i = 0; i < 4; i++) {
+      if (guess[i] !== secretCode[i] && secretCode.includes(guess[i])) {
+        feedback.partial++;
+      }
+    }
+
+    return feedback;
+  }
+
+  // Function to handle guess submission
+  function submitGuess() {
+    const guessInput = document.getElementById('guess');
+    const guess = guessInput.value;
+
+    if (guess.length !== 4 || !/^[1-6]+$/.test(guess)) {
+      alert('Please enter a 4-digit guess using numbers 1-6.');
+      return;
+    }
+
+    attempts++;
+
+    const feedback = checkGuess(guess);
+
+    // Display feedback
+    const feedbackDiv = document.getElementById('feedback');
+    const feedbackText = `Attempt ${attempts}: ${feedback.exact} Exact, ${feedback.partial} Partial`;
+    feedbackDiv.innerHTML += `<div>${feedbackText}</div>`;
+
+    // Display user input in the guess history
+    const guessHistoryDiv = document.getElementById('guessHistory');
+    guessHistoryDiv.innerHTML += `<div>Guess ${attempts}: ${guess}</div>`;
+
+    // Check if the guess is correct
+    if (feedback.exact === 4) {
+      alert(`Congratulations! You guessed the code in ${attempts} attempts.`);
+      resetGame();
+    }
+
+    // Clear the input field
+    guessInput.value = '';
+  }
+
+  // Function to reveal the hidden code
+  function revealCode() {
+    alert(`The secret code is: ${secretCode}`);
+  }
+
+  // Function to reset the game
+  function resetGame() {
+    secretCode = generateSecretCode();
+    attempts = 0;
+    document.getElementById('feedback').innerHTML = '';
+    document.getElementById('guessHistory').innerHTML = '';
+  }
+</script>
+
+</body>
+</html>
