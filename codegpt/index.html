@@ -3,26 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mastermind Game</title>
-  <style>
+  <title>Jeu de code</title>
+  
+    <style>
     input {
-      width: 30px;
+      width: 40px;
       text-align: center;
-    }
+    }    
+    label {
+      font-size: 18px; /* Increase font size for label */
+      color: #333;     /* Set color for label */
+    }     
     .feedback {
       font-weight: bold;
+      font-size: 22px; /* Increase font size */
+      color: blue;   /* Set color for feedback */
+    }
+    .guessHistory {
+      font-size: 16px; /* Increase font size for guess history */
+      color: blue;    /* Set color for guess history */
     }
   </style>
+ 
 </head>
 <body>
 
-<h1>Mastermind Game</h1>
+<h1 style="color: #e44d26;">?Code?</h1>      
 <div id="game">
-  <div>
-    <label for="guess">Enter your guess:</label>
+  <div>  
+    <label for="guess">Entrer le code :</label>
     <input type="text" id="guess" maxlength="4">
-    <button onclick="submitGuess()">Submit Guess</button>
-    <button onclick="revealCode()">Reveal Code</button>
+    <button onclick="submitGuess()">Soumettre</button>
   </div>
   <div id="feedback" class="feedback"></div>
   <div id="guessHistory"></div>
@@ -62,33 +73,39 @@
 
     return feedback;
   }
-
-  // Function to handle guess submission
+    
+    // Function to handle guess submission
   function submitGuess() {
     const guessInput = document.getElementById('guess');
     const guess = guessInput.value;
 
-    if (guess.length !== 4 || !/^[1-6]+$/.test(guess)) {
-      alert('Please enter a 4-digit guess using numbers 1-6.');
+    // Check if the user entered the special code to reveal the hidden code
+    if (guess === '9999') {
+      revealCode();
       return;
     }
-
+      
+     if (guess !== '9999' && (guess.length !== 4 || !/^[1-6]+$/.test(guess))) {
+      alert('Veuillez entrer un code de 4 chiffres de 1 à 6.');
+      return;
+    }
+         
     attempts++;
-
+      
     const feedback = checkGuess(guess);
 
     // Display feedback
     const feedbackDiv = document.getElementById('feedback');
-    const feedbackText = `Attempt ${attempts}: ${feedback.exact} Exact, ${feedback.partial} Partial`;
+    const feedbackText = `${guess} : ${feedback.exact} Bien, ${feedback.partial} Mal`;
     feedbackDiv.innerHTML += `<div>${feedbackText}</div>`;
 
     // Display user input in the guess history
-    const guessHistoryDiv = document.getElementById('guessHistory');
-    guessHistoryDiv.innerHTML += `<div>Guess ${attempts}: ${guess}</div>`;
+   // const guessHistoryDiv = document.getElementById('guessHistory');
+    // guessHistoryDiv.innerHTML += `<div>Guess ${attempts}: ${guess}</div>`;
 
     // Check if the guess is correct
     if (feedback.exact === 4) {
-      alert(`Congratulations! You guessed the code in ${attempts} attempts.`);
+      alert(`Félicitations! Vous avez trouver le code en ${attempts} coups.`);
       resetGame();
     }
 
@@ -98,7 +115,7 @@
 
   // Function to reveal the hidden code
   function revealCode() {
-    alert(`The secret code is: ${secretCode}`);
+    alert(`Le code secret est : ${secretCode}`);
   }
 
   // Function to reset the game
