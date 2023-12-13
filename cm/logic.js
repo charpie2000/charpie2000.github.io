@@ -1,18 +1,6 @@
 /* *******************************************************************************
 // Program by John DeHart, July 09, 2020.										//
-//																				//
-// Program based off the board game "Mastermind" created in 1970. The object	//
-// of the game is to guess a randomly generated code. With each guess, the		//
-// player recieves hints, telling them how close they are. For a better			//
-// explanation, see the rules in the HTML file.									//
-//																				//
-// The program works by printing numbers on the Circles in the player's			//
-// control area (where the circles can be clicked to change colors). The		//
-// numbers are completely invisible to the player as they're the same color		//
-// as the circles themselves. The numbers correspond to the circle's color. The // 
-// player's array is then compared to the CPU's code.							//
-// if the arrays are the same, the player wins. If not, they player gets some	//
-// hints and the game continues. See the comments below for more info.			//
+// Modification charpinator, Dec 2023																				//
 ******************************************************************************* */
 
 
@@ -186,8 +174,22 @@ function checkArrays() {
 		obj1 = document.getElementById("pl1");
 		plArr = checkAnswer();						//calls checkAnswer() again because apparently plArr is a global variable?
 		printGuess(plArr, black, white);			//print the guess to the game area.
+         if (guesses >= 8) {
+            // Check if the player has exceeded xx attempts
+            document.getElementById("btn").disabled = true; // Disable the button to prevent further guesses
+            showLosePopup(); // Display "You Lose" popup
+        }
 	};
 };
+
+function showLosePopup() {
+    var modal = document.getElementById("myModal");
+    var textStuff = "<center><h1>Vous avez perdu!</h1>Désolé, vous n'avez pas réussi à trouver le code en 8 coups.<br />";
+    textStuff += "<button id='restartBtn' onClick='location.reload();'>Rejouer</button></center>";
+
+    document.getElementById("modal-content").innerHTML += textStuff;
+    modal.style.display = "block";
+}
 
 function winner(guesses) {		//function brings up a popup, tells the user their score, then gives them the option to refresh the page.
 	var modal = document.getElementById("myModal");				//popup div
