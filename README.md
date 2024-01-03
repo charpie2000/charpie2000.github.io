@@ -1,5 +1,5 @@
 
-[Modukebec](https://charpie2000.github.io) est un clone francophone de [Wordle](https://www.powerlanguage.co.uk/wordle/) et de berknation.
+[Modukebec](https://charpie2000.github.io/modukebec/) est un clone francophone de wordle et de berknation.
 
 Jouer à modukebec! Vous pouvez soit jouer le mot du jour, un mot d'archive ou un mot aléatoire : https://charpie2000.github.io
 
