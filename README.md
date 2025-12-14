@@ -8,6 +8,7 @@ Bienvenue sur ma page de développement de jeu en javascript. Vous trouverez ici
 
 [CodeGPT](https://charpie2000.github.io/codegpt/): Un code test en développement créé avec ChatGPT
 
+[Pointage](https://charpie2000.github.io/pointage/): Un utilitaire pour marquer les points aux cartes
 
 ## Commentaires
 
